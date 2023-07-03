@@ -82,65 +82,231 @@ class _HomeViewState extends State<HomeView> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.symmetric(vertical:10, horizontal: 28),
             child: RecommendWidget(textStyleG: textStyleG),
           ),
           Expanded(
-            child: GridView.count(
-              padding: EdgeInsets.all(10),
-              mainAxisSpacing: 10,
-              crossAxisSpacing: 10,
-              crossAxisCount: 2,
+            child: Column(
               children: [
-                Column(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('lib/assets/Audi.png',),fit: BoxFit.cover
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                          color: ProjectColors.ObsidianShard),                       
-                    ),
-                    Column(
-                        // mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text('Audi e-tron Premium'),
-                          Text('Rs. 54,77,823,73')
-                        ],
-                      ),
-                  ],
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('lib/assets/Audi.png',),fit: BoxFit.cover
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                      color: ProjectColors.ObsidianShard),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('lib/assets/Audi.png',),fit: BoxFit.cover
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                      color: ProjectColors.ObsidianShard),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('lib/assets/Audi.png',),fit: BoxFit.cover
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                      color: ProjectColors.ObsidianShard),
-                ),
-                
+                Expanded(
+                  
+                  child: ListView(children: [
+                    RecommendedList(textStyleG: textStyleG),
+                    SizedBox(height:25,),
+                    RecommendedList(textStyleG: textStyleG)
+                  ]),
+                )
+
+                // Stack(children: [Text('data')]),
               ],
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class RecommendedList extends StatelessWidget {
+  const RecommendedList({
+    super.key,
+    required this.textStyleG,
+  });
+
+  final TextStyle textStyleG;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            RecommendedCardWidget(textStyleG: textStyleG),
+            SizedBox(
+              height: 5,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: RecommendedTexts(textStyleG: textStyleG),
+            )
+          ],
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            RecommendedCardWidget(textStyleG: textStyleG),
+            SizedBox(
+              height: 5,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: RecommendedTexts(textStyleG: textStyleG),
+            )
+          ],
+        )
+      ],
+    );
+  }
+}
+
+class RecommendedCardWidget extends StatelessWidget {
+  const RecommendedCardWidget({
+    super.key,
+    required this.textStyleG,
+  });
+
+  final TextStyle textStyleG;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(
+          vertical: 12, horizontal: 15),
+      width: 175,
+      height: 178,
+      decoration: BoxDecoration(
+        image: const DecorationImage(
+            image: AssetImage(
+              'lib/assets/e_treon_premium.png',
+            ),
+            fit: BoxFit.cover),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Stack(
+        children: [
+          AroundViewWidget(textStyleG: textStyleG),
+          FavoriteIcon(),
+          PlayButton()
+        ],
+      ),
+    );
+  }
+}
+
+class AroundViewWidget extends StatelessWidget {
+  const AroundViewWidget({
+    super.key,
+    required this.textStyleG,
+  });
+
+  final TextStyle textStyleG;
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.topLeft,
+      child: Row(
+        mainAxisAlignment:
+            MainAxisAlignment.start,
+        children: [
+          Text(
+            '360 View',
+            style: textStyleG.copyWith(
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+                color:
+                    ProjectColors.MaximumOrange),
+          ),
+          SizedBox(
+            width: 5,
+          ),
+          Image.asset(
+            'lib/assets/3d-view.png',
+            width: 15,
           )
         ],
       ),
+    );
+  }
+}
+
+class FavoriteIcon extends StatelessWidget {
+  const FavoriteIcon({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.topRight,
+      child: Container(
+        alignment: Alignment.center,
+        width: 28,
+        height: 28,
+        decoration: BoxDecoration(
+            color: ProjectColors.DrWhite,
+            borderRadius:
+                BorderRadius.circular(14)),
+        child: Icon(
+          Icons.favorite,
+          color: ProjectColors.MaximumOrange,
+          size: 20,
+        ),
+      ),
+    );
+  }
+}
+
+class PlayButton extends StatelessWidget {
+  const PlayButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 3),
+      child: Align(
+        alignment: Alignment.bottomLeft,
+        child: Container(
+            alignment: Alignment.center,
+            width: 25,
+            height: 25,
+            decoration: BoxDecoration(
+                color: ProjectColors.DrWhite.withOpacity(0.75),
+                
+                borderRadius:
+                    BorderRadius.circular(15)),
+            child: Icon(
+              Icons.play_circle,
+              size: 20,
+              color: ProjectColors.MaximumOrange,
+            )),
+      ),
+    );
+  }
+}
+
+class RecommendedTexts extends StatelessWidget {
+  const RecommendedTexts({
+    super.key,
+    required this.textStyleG,
+  });
+
+  final TextStyle textStyleG;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(                              
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Audi e-tron Premium',
+          style: textStyleG.copyWith(
+              fontWeight: FontWeight.w600,
+              color: ProjectColors.ObsidianShard,
+              fontSize: 14),
+        ),
+        Text(
+          'Rs. 54,77,823.73',
+          style: textStyleG.copyWith(
+              fontWeight: FontWeight.w600,
+              color: ProjectColors.TulleGrey,
+              fontSize: 12),
+        )
+      ],
     );
   }
 }
