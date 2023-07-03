@@ -21,10 +21,10 @@ class WelcomeTexts extends StatelessWidget {
             Text(pageInfo,
                 style: style.copyWith(
                     fontSize: 20,
-                    color: ProjectColors.Deepblack,
+                    color: ProjectColors.ObsidianShard,
                     fontWeight: FontWeight.w900)),
             Text(pageMessage,
-                style: style.copyWith(fontSize: 14, color: ProjectColors.Deepblack))
+                style: style.copyWith(fontSize: 14, color: ProjectColors.ObsidianShard))
           ],
         ),
       ),

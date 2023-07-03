@@ -23,14 +23,14 @@ class InputWidget extends StatelessWidget {
             padding: const EdgeInsets.all(5),
             child: TextField(
               textAlignVertical: TextAlignVertical.center,
-              cursorColor: ProjectColors.ThemeOrange,
+              cursorColor: ProjectColors.MaximumOrange,
               decoration: InputDecoration(
-                  fillColor: ProjectColors.LogoWhite,
-                  focusColor: ProjectColors.ThemeOrange,
-                  prefixIconColor: ProjectColors.NardoGrey,
+                  fillColor: ProjectColors.White,
+                  focusColor: ProjectColors.MaximumOrange,
+                  prefixIconColor: ProjectColors.BerryChalk,
                   prefixIcon: inputIcon,
                   hintStyle: style.copyWith(
-                      color: ProjectColors.NardoGrey, fontWeight: FontWeight.w600),
+                      color: ProjectColors.BerryChalk, fontWeight: FontWeight.w600),
                   hintText: hintText,
                   border: InputBorder.none),
             ),

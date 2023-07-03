@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_car_selling_app/pages/HomeScreen.dart';
 import 'package:flutter_car_selling_app/pages/login_page.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MainApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Color(0xFFF9FAFB),
       ),
-      home: LoginView()
+      home: HomeView()
     );
   }
 }

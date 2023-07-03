@@ -15,7 +15,7 @@ class OrangeButton extends StatelessWidget {
       height: 64,
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-              backgroundColor: ProjectColors.ThemeOrange,
+              backgroundColor: ProjectColors.MaximumOrange,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
               // padding: EdgeInsets.symmetric(horizontal: 150, vertical: 15),

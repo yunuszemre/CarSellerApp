@@ -29,7 +29,7 @@ class CreateorLoginTextWidget extends StatelessWidget {
             Text(
               infotext,
               style: textStyleG.copyWith(
-                  fontSize: 14, color: ProjectColors.NardoGrey),
+                  fontSize: 14, color: ProjectColors.BerryChalk),
             ),
             InkWell(
                 onTap: (){
@@ -42,7 +42,7 @@ class CreateorLoginTextWidget extends StatelessWidget {
                 child: Text(
                   actionText,
                   style: textStyleG.copyWith(
-                      fontSize: 14, color: ProjectColors.ThemeOrange),
+                      fontSize: 14, color: ProjectColors.MaximumOrange),
                 ))
           ],
         ),

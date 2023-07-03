@@ -14,14 +14,14 @@ class LogoWigdet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: ProjectColors.ThemeOrange, borderRadius: BorderRadius.circular(38)),
+          color: ProjectColors.MaximumOrange, borderRadius: BorderRadius.circular(38)),
       child: SizedBox(
         width: 76,
         height: 76,
         child: Center(
           child: Text(
             ProjectStrings.logoLetter,
-            style: textStyleG.copyWith(fontSize: 50, color: ProjectColors.LogoWhite),
+            style: textStyleG.copyWith(fontSize: 50, color: ProjectColors.White),
           ),
         ),
       ),
