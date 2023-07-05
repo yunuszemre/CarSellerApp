@@ -13,7 +13,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
+  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     TextStyle textStyleG = GoogleFonts.poppins(
@@ -21,7 +21,19 @@ class _HomeViewState extends State<HomeView> {
     );
     return Scaffold(
       drawer: Drawer(),
-      appBar: AppBar(
+      bottomNavigationBar: BottomNavigationBar(items: [
+        BottomNavigationBarItem(icon: IconButton(icon: Icon(Icons.home),onPressed: () {
+          setState(() {
+            
+          });
+        }, color: ProjectColors.MaximumOrange),label: 'Home'),
+        BottomNavigationBarItem(icon: Icon(Icons.favorite, color: ProjectColors.TulleGrey,),label: 'Favorite'),
+        BottomNavigationBarItem(icon: Icon(Icons.person, color: ProjectColors.TulleGrey,),label: 'Personal')
+      ],
+      selectedItemColor: ProjectColors.MaximumOrange,
+      currentIndex: _currentIndex,      
+      ),
+      appBar: AppBar(        
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -82,17 +94,18 @@ class _HomeViewState extends State<HomeView> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical:10, horizontal: 28),
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
             child: RecommendWidget(textStyleG: textStyleG),
           ),
           Expanded(
             child: Column(
               children: [
                 Expanded(
-                  
                   child: ListView(children: [
                     RecommendedList(textStyleG: textStyleG),
-                    SizedBox(height:25,),
+                    SizedBox(
+                      height: 25,
+                    ),
                     RecommendedList(textStyleG: textStyleG)
                   ]),
                 )
@@ -105,6 +118,8 @@ class _HomeViewState extends State<HomeView> {
       ),
     );
   }
+
+  _onItemTapped(int i) {}
 }
 
 class RecommendedList extends StatelessWidget {
@@ -162,10 +177,9 @@ class RecommendedCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-          vertical: 12, horizontal: 15),
-      width: 175,
-      height: 178,
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 15),
+      width: 190,
+      height: 198,
       decoration: BoxDecoration(
         image: const DecorationImage(
             image: AssetImage(
@@ -198,16 +212,14 @@ class AroundViewWidget extends StatelessWidget {
     return Align(
       alignment: Alignment.topLeft,
       child: Row(
-        mainAxisAlignment:
-            MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(
             '360 View',
             style: textStyleG.copyWith(
                 fontSize: 12,
                 fontWeight: FontWeight.w600,
-                color:
-                    ProjectColors.MaximumOrange),
+                color: ProjectColors.MaximumOrange),
           ),
           SizedBox(
             width: 5,
@@ -237,8 +249,7 @@ class FavoriteIcon extends StatelessWidget {
         height: 28,
         decoration: BoxDecoration(
             color: ProjectColors.DrWhite,
-            borderRadius:
-                BorderRadius.circular(14)),
+            borderRadius: BorderRadius.circular(14)),
         child: Icon(
           Icons.favorite,
           color: ProjectColors.MaximumOrange,
@@ -266,9 +277,7 @@ class PlayButton extends StatelessWidget {
             height: 25,
             decoration: BoxDecoration(
                 color: ProjectColors.DrWhite.withOpacity(0.75),
-                
-                borderRadius:
-                    BorderRadius.circular(15)),
+                borderRadius: BorderRadius.circular(15)),
             child: Icon(
               Icons.play_circle,
               size: 20,
@@ -289,7 +298,7 @@ class RecommendedTexts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(                              
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(

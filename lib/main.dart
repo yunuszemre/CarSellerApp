@@ -3,6 +3,8 @@ import 'package:flutter_car_selling_app/pages/HomeScreen.dart';
 import 'package:flutter_car_selling_app/pages/empty.dart';
 import 'package:flutter_car_selling_app/pages/login_page.dart';
 
+import 'components/bottom_nav_bar.dart';
+
 void main() {
   runApp(const MainApp());
 }
