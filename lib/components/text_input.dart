@@ -21,13 +21,13 @@ class InputWidget extends StatelessWidget {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           child: Padding(
             padding: const EdgeInsets.all(5),
-            child: TextField(
+            child: TextField(              
               textAlignVertical: TextAlignVertical.center,
               cursorColor: ProjectColors.MaximumOrange,
               decoration: InputDecoration(
                   fillColor: ProjectColors.White,
                   focusColor: ProjectColors.MaximumOrange,
-                  prefixIconColor: ProjectColors.BerryChalk,
+                  prefixIconColor: ProjectColors.BerryChalk,                
                   prefixIcon: inputIcon,
                   hintStyle: style.copyWith(
                       color: ProjectColors.BerryChalk, fontWeight: FontWeight.w600),

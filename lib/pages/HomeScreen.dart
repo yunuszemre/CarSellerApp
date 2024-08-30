@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_car_selling_app/components/rangeSlider.dart';
 import 'package:flutter_car_selling_app/components/text_input.dart';
 import 'package:flutter_car_selling_app/core/project_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -71,14 +72,14 @@ class _HomeViewState extends State<HomeView> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(5.0),
             child: SearchandFilterWigets(textStyleG: textStyleG),
           ),
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.symmetric(horizontal: 5.0),
             child: SizedBox(
               width: 400,
-              height: 200,
+              height: 180,
               child: ListView(scrollDirection: Axis.horizontal, children: [
                 FeaturedCard(
                   textStyleG: textStyleG,
@@ -94,7 +95,7 @@ class _HomeViewState extends State<HomeView> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
             child: RecommendWidget(textStyleG: textStyleG),
           ),
           Expanded(
@@ -106,10 +107,11 @@ class _HomeViewState extends State<HomeView> {
                     SizedBox(
                       height: 25,
                     ),
-                    RecommendedList(textStyleG: textStyleG)
+                    RecommendedList(textStyleG: textStyleG),
+                    RangeSliderCustom()
                   ]),
                 )
-
+            
                 // Stack(children: [Text('data')]),
               ],
             ),
@@ -221,7 +223,7 @@ class AroundViewWidget extends StatelessWidget {
                 fontWeight: FontWeight.w600,
                 color: ProjectColors.MaximumOrange),
           ),
-          SizedBox(
+          const SizedBox(
             width: 5,
           ),
           Image.asset(

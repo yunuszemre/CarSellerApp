@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_car_selling_app/pages/HomeScreen.dart';
+import 'package:flutter_car_selling_app/pages/create_account_page.dart';
 import 'package:flutter_car_selling_app/pages/empty.dart';
 import 'package:flutter_car_selling_app/pages/login_page.dart';
 
@@ -16,10 +17,10 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {    
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
+      theme: ThemeData(        
         scaffoldBackgroundColor: Color(0xFFF9FAFB),
       ),
-      home: HomeView()
+      home: const HomeView()
     );
   }
 }

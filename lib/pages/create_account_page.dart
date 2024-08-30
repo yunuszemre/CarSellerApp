@@ -38,7 +38,7 @@ class CreateAccountView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               LogoWigdet(textStyleG: textStyleG),
-              WelcomeTexts(
+              WelcomeTexts(                
                   pageInfo: ProjectStrings.SignUp,
                   pageMessage: ProjectStrings.FindYourDreamCar,
                   style: textStyleG),

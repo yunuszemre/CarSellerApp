@@ -15,7 +15,7 @@ class WelcomeTexts extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(40.0),
-      child: Container(
+      child: Container(        
         child: Column(
           children: [
             Text(pageInfo,
